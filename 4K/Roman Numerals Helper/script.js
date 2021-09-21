@@ -4,42 +4,68 @@ class RomanNumerals {
         this.num = num;
     }
 
-    toRoman(num) {
-
+    toRoman() {
+    
+        let romanNum = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
+    
+        let str = String(this.num);
+        let pos = str.length;
+        let result = '';
+        
+        for (let key of str) { //итерируем каждый разряд
+    
+            let romL = romanNum.length + 1 - pos * 2  ; // -4 // -6 
+            if (key < 4) {
+                for ( let i = 0; i < key; i++) {
+                    result += `${romanNum[romL]}`; //I
+                }
+            }
+    
+            if (key >= 6 && key < 9) {
+                result += `${romanNum[romL-1]}`;
+    
+                for ( let i = 5; i < key; i++) {
+                    result += `${romanNum[romL]}`; //I
+                }
+            }    
+    
+            switch (key) {
+                case '4':
+                    result += `${romanNum[romL]}${romanNum[romL-1]}` // 'IV';
+                    break;
+                case '5':
+                    result += `${romanNum[romL-1]}`;
+                    break;
+                case '9':
+                    result += `${romanNum[romL]}${romanNum[romL-2]}`;
+                    break;                                   
+                default:
+                    break;
+            }
+            pos--
+            //console.log(result);
+        }
+        
+        return result
     }
-
+    
     fromRoman(num) {
 
     }
 }
 
-//RomanNumerals.toRoman(1000); // should return 'M'
+let numeral = new RomanNumerals(1456)
+console.log(numeral.toRoman()); ; // should return 'M'
+
+RomanNumerals.toRoman(1000);
 //RomanNumerals.fromRoman('M'); // should return 1000
 
-
-function toRoman(num) {
-    let result = '';
-
-    let i = 1;
-    let v = 5;
-    let x = 10;
-    let l = 50;
-    let c = 100;
-    let d = 500;
-    let m = 1000;
-    let numeric = [1000, 500, 100, 50, 10, 5, 1]
-
-    //987
-    num / 500 = n
-    num - 500 * n > 400
-    +CM
-    //if (num / 500 < 1) continue//двигаемся дальше
-    
+/* let foo = 3999;
+console.log(String(foo)[0]);
 
 
-    
-    return result
-}
+let arabicNum = [1000, 500, 100, 50, 10, 5, 1, ];
+
 
 console.log(toRoman(3999)); 
 console.log(toRoman(2999)); 
@@ -63,7 +89,7 @@ romeNum.forEach((elem, i) => {
 })
 
 
-
+ */
 /*
 
 I 	1
