@@ -27,22 +27,16 @@ function toRoman(num) {
     let c = 100;
     let d = 500;
     let m = 1000;
+    let numeric = [1000, 500, 100, 50, 10, 5, 1]
+
+    //987
+    num / 500 = n
+    num - 500 * n > 400
+    +CM
+    //if (num / 500 < 1) continue//двигаемся дальше
+    
 
 
-
-    let bar = Math.floor(num / 1000);
-    console.log(bar);
-
-
-    for (let i = 1; i <= m; i++) result += 'M'
-
-    /999
-    let d = 500
-
-
-
-
-    //if (num % 1000 < 4) 
     
     return result
 }
@@ -67,6 +61,7 @@ romeNum.forEach((elem, i) => {
         arr.push(elem);
     }
 })
+
 
 
 /*
